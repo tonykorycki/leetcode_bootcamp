@@ -1,0 +1,27 @@
+//sort colors leetcode solution
+
+class Solution(object):
+    def sortColors(self, nums):
+        n=len(nums)-1
+        left=0
+        right=n
+        while left<right:
+            if nums[left]==0:
+                left+=1
+            elif nums[right]==0:
+                nums[left],nums[right]=nums[right],nums[left]
+            else:
+                right-=1
+        
+        right=n
+        while left<right:
+            if nums[left]==1:
+                left+=1
+            elif nums[right]==1:
+                nums[left],nums[right]=nums[right],nums[left]
+            else:
+                right-=1
+
+        return nums
+
+        
