@@ -1,0 +1,25 @@
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        map={}
+        w=len(nums)+1
+        arr=[[] for num in range(w)]
+        for num in nums:
+            try: 
+                map[num]+=1
+            except:
+                map[num]=1
+        for key,value in map.items():
+            arr[value].append(key)
+        result=[]
+        while(len(result)!=k):
+            if arr[w-1]:
+                result.append(arr[w-1].pop())
+            else:
+                w-=1
+        return result
+            
